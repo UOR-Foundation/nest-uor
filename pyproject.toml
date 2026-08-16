@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "nest-uor"
+version = "0.1.0"
+description = "Ruleset-tagged structural content addressing (JCS + NFC) for the NANDA DataFacts layer"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "Maura Clark", email = "mauraclark@proton.me" }]
+keywords = ["jcs", "rfc8785", "canonicalization", "content-addressing", "nanda"]
+classifiers = [
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Security :: Cryptography",
+]
+# No runtime dependencies. The canonicalizer and its conformance vectors run
+# on the standard library alone -- see [project.optional-dependencies].
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/UOR-Foundation/nest-uor"
+Repository = "https://github.com/UOR-Foundation/nest-uor"
+
+[project.optional-dependencies]
+# The DataFacts plugin (nest_uor.datafacts) targets NANDA's SDK. Only this
+# extra needs it; nest_uor.canon does not. nest-sdk itself requires >=3.12.
+nanda = ["nest-sdk>=0.1.0"]
+dev = ["pytest>=7", "hypothesis>=6"]
+
+[project.entry-points."nest.plugins.datafacts"]
+uor_datafacts = "nest_uor.datafacts:UorDataFacts"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/nest_uor"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

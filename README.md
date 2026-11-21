@@ -1,4 +1,15 @@
+![nest-uor: illustrative local UOR Foundation PNG, not approved project artwork](assets/readme-banner-PLACEHOLDER.png)
+
+*Illustrative placeholder pending Foundation brand review.*
+
 # nest-uor
+
+**A ruleset-tagged content-addressing experiment for Nanda Town's DataFacts layer.** It offers Python conformance vectors and an optional NANDA plugin, while benchmark comparisons have explicit reconstructed-baseline limitations.
+
+[Scope and requirements](#scope) · [Address behavior](#what-it-changes) · [Evidence](#measured-not-asserted) · [Conformance](#conformance) · [Limitations](#limits) · [Prior art](#prior-art)
+
+[![Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-718096)](LICENSE)
+
 
 Structural content addressing for Nanda Town's **DataFacts** layer (layer 12).
 
